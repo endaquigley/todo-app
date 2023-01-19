@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import useStore from "../hooks/useStore";
 
 function CreateItem() {
-  const inputRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const [title, setTitle] = useState("");
   const addItem = useStore((state) => state.addItem);
