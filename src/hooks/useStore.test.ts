@@ -10,13 +10,13 @@ describe("useStore", () => {
     useStore.setState(initialStoreState, true);
   });
 
-  it("initial state", () => {
+  it("should initialise with the correct state", () => {
     const { result } = renderHook(() => useStore());
 
     expect(result.current.items).toHaveLength(0);
   });
 
-  it("addItem", () => {
+  it("should add an item to the items array once addItem is called", () => {
     const { result } = renderHook(() => useStore());
 
     act(() => {
@@ -26,7 +26,7 @@ describe("useStore", () => {
     expect(result.current.items).toHaveLength(1);
   });
 
-  it("updateItemStatus", () => {
+  it("should toggle the matching item status once toggleItemStatus is called", () => {
     const { result } = renderHook(() => useStore());
 
     act(() => {
@@ -46,7 +46,7 @@ describe("useStore", () => {
     expect(updatedItem.status).toEqual(ItemStatus.Done);
   });
 
-  it("removeItem", () => {
+  it("should remove the matching item from the items array once removeItem is called", () => {
     const { result } = renderHook(() => useStore());
 
     act(() => {
