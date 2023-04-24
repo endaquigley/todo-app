@@ -1,3 +1,4 @@
+import { vi, describe, beforeEach, it } from "vitest";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 
@@ -11,7 +12,7 @@ describe("CreateItem", () => {
     useStore.setState(
       {
         ...initialStoreState,
-        addItem: jest.fn(),
+        addItem: vi.fn(),
       },
       true
     );
@@ -19,6 +20,7 @@ describe("CreateItem", () => {
 
   it("should reset state once an item has been created", async () => {
     const user = userEvent.setup();
+
     render(<CreateItem />);
 
     await user.type(screen.getByRole("textbox"), "Mock Item");
@@ -29,6 +31,7 @@ describe("CreateItem", () => {
 
   it("should trigger addItem once the add button is clicked", async () => {
     const user = userEvent.setup();
+
     render(<CreateItem />);
 
     await user.type(screen.getByRole("textbox"), "Mock Item");

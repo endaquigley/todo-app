@@ -1,3 +1,4 @@
+import { vi, describe, beforeEach, it } from "vitest";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 
@@ -21,8 +22,8 @@ describe("ItemCard", () => {
     useStore.setState(
       {
         ...initialStoreState,
-        removeItem: jest.fn(),
-        toggleItemStatus: jest.fn(),
+        removeItem: vi.fn(),
+        toggleItemStatus: vi.fn(),
       },
       true
     );
@@ -30,6 +31,7 @@ describe("ItemCard", () => {
 
   it("should trigger removeItem when the toggle button is clicked", async () => {
     const user = userEvent.setup();
+
     render(<ItemCard {...mockItem} />);
 
     await user.click(screen.getByRole("button", { name: "Remove item" }));
@@ -39,6 +41,7 @@ describe("ItemCard", () => {
 
   it("should trigger toggleItemStatus when the toggle button is clicked", async () => {
     const user = userEvent.setup();
+
     render(<ItemCard {...mockItem} />);
 
     await user.click(screen.getByRole("button", { name: "Toggle status" }));
