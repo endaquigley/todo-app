@@ -15,7 +15,7 @@ const useStore = create<StoreState, [["zustand/persist", StoreState]]>(
   persist(
     (set) => ({
       items: [],
-      addItem: (title: string = "") => {
+      addItem: (title = "") => {
         return set((state) => ({
           items: [
             ...state.items,
