@@ -1,6 +1,5 @@
-import { vi, describe, beforeEach, it } from "vitest";
-import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import CreateItem from "./CreateItem";
 import useStore from "../hooks/useStore";
